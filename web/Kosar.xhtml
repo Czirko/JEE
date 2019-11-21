@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:commandLink value="Vissza a termékekhez" action="index"/>
+            <h:dataTable value="#{kosar.keList}" var="ke">
+            
+                <h:column>
+                    <f:facet name="header">Mennyiség</f:facet>
+                    <h:commandButton value="+" action="#{kosar.keDbNovel(ke)}"/>
+                    <h:commandButton value="-" action="#{kosar.keDbCsokkent(ke)}"/>
+                    #{ke.db} db.
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Common</f:facet>
+                    #{ke.termek.common}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Botanical</f:facet>
+                    #{ke.termek.botanical}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Light</f:facet>
+                    #{ke.termek.light}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Zone</f:facet>
+                    #{ke.termek.zone}
+                    <f:facet name="footer">Összár: </f:facet>
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Price</f:facet>
+                    #{ke.termek.price}
+                   
+                </h:column>
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

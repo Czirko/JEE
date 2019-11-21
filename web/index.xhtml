@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link href="plantStyle.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        <h:form class="form">
+            <h:commandLink class="cmdLnk" value="Kosár (#{kosar.totalDb} )#{kosar.totalkosar}$" action="Kosar"/> 
+            <h:dataTable id="dTable" value="#{listazo.plts}" var="plt">
+                <h:column>
+                    <f:facet  name="header">Common</f:facet>
+                        #{plt.common}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Botanical</f:facet>
+                        #{plt.botanical}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Light</f:facet>
+                        #{plt.light}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Zone</f:facet>
+                        #{plt.zone}
+                </h:column>
+
+                <h:column>
+                    <f:facet name="header">Price</f:facet>
+                        #{plt.price}
+                </h:column>
+                <h:column>
+                    <f:facet name="header">Vásárláss</f:facet>
+                    <h:commandButton value="Kosárba" action="#{kosar.hozzaAd(plt)}" />
+                </h:column>
+
+            </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+
